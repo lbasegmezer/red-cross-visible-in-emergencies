@@ -1,0 +1,149 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Cumbria floods 2019
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/red-cross-header.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+      <form action="/check-answers" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="registration-number">
+              Name of caller
+            </label>
+          </h1>
+          <input class="govuk-input" id="registration-number" name="caller-name" value="{{ data['caller-name'] }}" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="registration-number">
+              Notes
+            </label>
+          </h1>
+          <textarea class="govuk-textarea govuk-js-character-count " id="registration-number" name="handler-notes" value="{{ data['handler-notes'] }}" rows="19" aria-describedby="with-hint-info with-hint-hint"></textarea>
+
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Number needing support
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="vehicle-type-car" name="vehicle-type" type="radio" value="One person" {{ checked("vehicle-type", "One person") }}>
+                <label class="govuk-label govuk-radios__label" for="vehicle-type-car">
+                  One person
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="vehicle-type-lorry" name="vehicle-type" type="radio" value="A family or group" {{ checked("vehicle-type", "A family or group") }}>
+                <label class="govuk-label govuk-radios__label" for="vehicle-type-lorry">
+                  A family or group
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="vehicle-type-motorcycle" name="vehicle-type" type="radio" value="Multiple-groups" {{ checked("vehicle-type", "Multiple-groups") }}>
+                <label class="govuk-label govuk-radios__label" for="vehicle-type-motorcycle">
+                  Multiple groups
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                What support is needed
+              </h1>
+            </legend>
+            <span id="citizenship-conditional-hint" class="govuk-hint">
+              Select all options that are relevant.
+            </span>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="temporary housing" data-aria-controls="conditional-citizenship-conditional-2">
+                <label class="govuk-label govuk-checkboxes__label">
+                  Temporary housing
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                <label class="govuk-label govuk-checkboxes__label">
+                  Financial assistance
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="insurance advice" data-aria-controls="conditional-citizenship-conditional-2">
+                <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-2">
+                  Insurance advice
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-citizenship-conditional-2">
+                <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-2">
+                  Grants to repair home and replace lost possessions
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-citizenship-conditional-2">
+                <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-2">
+                  Emotional support
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional">
+                  <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                    Other support
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-email">
+                      Email address
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                  </div>
+
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        </form><!-- end of form group with link to next page -->
+
+    </div>
+
+  </div>
+
+{% endblock %}

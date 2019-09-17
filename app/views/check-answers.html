@@ -1,0 +1,86 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Cumbria floods 2019
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/red-cross-header.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Check information before sending
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Call details
+      </h2>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Name of caller
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['caller-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-registration">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Notes
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['handler-notes'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-registration">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number needing support
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['vehicle-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-type">
+              Change <span class="govuk-visually-hidden">vehicle type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Support needed
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['support-needed'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <p>
+        <a href="/docs/tutorials-and-examples">
+          Return to Prototype Kit examples
+        </a>
+      </p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

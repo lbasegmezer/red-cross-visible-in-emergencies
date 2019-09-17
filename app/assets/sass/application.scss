@@ -1,3 +1,4 @@
+
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
@@ -16,7 +17,3 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-
-.app-\!-reference-number-width details {
-  margin-bottom: 0px !important;
-}
