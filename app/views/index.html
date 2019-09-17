@@ -1,0 +1,43 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Red Cross prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">British Red Cross</span>
+        Visible in emergencies
+      </h1>{{releaseVersion | log }}
+      <p>
+        Innovation team testing different options to make more people visible to organisations who can support them.  
+      </p>
+
+      <h2 class="govuk-heading-m">Prototypes</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/land-page">Landing-page</a></li>
+        <li><a href="/land-page">Call handler view</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Examples and documentation</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
+        <li>
+          <a href="https://design-system.service.gov.uk">
+            GOV.UK Design System
+          </a>
+        </li>
+      </ul>
+
+      <p>Red Cross prototype</p>
+
+    </div>
+</div>
+
+{% endblock %}
