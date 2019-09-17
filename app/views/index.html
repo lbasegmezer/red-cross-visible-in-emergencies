@@ -7,10 +7,11 @@
 
 {% block content %}
 
+{% include "includes/red-cross-header.html" %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">British Red Cross</span>
         Visible in emergencies
       </h1>{{releaseVersion | log }}
       <p>
@@ -20,7 +21,7 @@
       <h2 class="govuk-heading-m">Prototypes</h2>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/land-page">Landing-page</a></li>
+        <li><a href="/landing-page">Landing-page</a></li>
         <li><a href="/land-page">Call handler view</a></li>
       </ul>
 
@@ -34,8 +35,6 @@
           </a>
         </li>
       </ul>
-
-      <p>Red Cross prototype</p>
 
     </div>
 </div>
