@@ -73,14 +73,52 @@
         </div>
       </dl>
 
-      <p>
-        <a href="/docs/tutorials-and-examples">
-          Return to Prototype Kit examples
-        </a>
-      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/docs/examples/pass-data/vehicle-check-answers" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="vehicle-features-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Who can information be shared with?
+              </h1>
+            </legend>
+            <span id="vehicle-features-hint" class="govuk-hint">
+              Select all that apply
+            </span>
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-heated-seats" name="vehicle-features" type="checkbox" value="Heated seats" {{ checked("vehicle-features", "Heated seats") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-heated-seats">
+                  Cumbria country council
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-gps" name="vehicle-features" type="checkbox" value="GPS" {{ checked("vehicle-features", "GPS") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-gps">
+                  NHS
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
+                  Police
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
 
     </div>
-
   </div>
 
 {% endblock %}
