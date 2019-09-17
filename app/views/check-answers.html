@@ -79,7 +79,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/docs/examples/pass-data/vehicle-check-answers" method="post" class="form">
+      <form action="/confirmation" method="post" novalidate>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="vehicle-features-hint">
@@ -95,7 +95,13 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="vehicle-features-heated-seats" name="vehicle-features" type="checkbox" value="Heated seats" {{ checked("vehicle-features", "Heated seats") }}>
                 <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-heated-seats">
-                  Cumbria country council
+                  Cumbria Country Council
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-gps" name="vehicle-features" type="checkbox" value="GPS" {{ checked("vehicle-features", "GPS") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-gps">
+                  Fire brigade
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -110,11 +116,25 @@
                   Police
                 </label>
               </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
+                  Energy companies
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <h2 class="govuk-heading-m">Now send information</h2>
+
+      <p>By submitting this information information will be made available to coordinate support from Red Cross and other Category 1 and 2 responders. </p>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Send and finish
+        </button>
 
       </form>
 
