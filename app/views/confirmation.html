@@ -9,7 +9,7 @@
 {% include "includes/header-call-handler.html" %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-full">
+    <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation" style="background-color: #05853a;">
         <h1 class="govuk-panel__title">People registered</h1>
@@ -22,9 +22,90 @@
         A confirmation text has been sent
       </p>
 
-      <h2 class="govuk-heading-m">What happens next</h2>
-      <p>We should write this</p>
-
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Name of caller
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['caller-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Current location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['caller-location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Notes
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['handler-notes'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number needing support
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['number-needing-support'] }}{{ feature }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">vehicle type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Support needed
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['support-needed'] }}{{ data['other-support-needed'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How to contact
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {% for feature in data['how-contacted'] %}
+                {{ data['how-contacted'] }}
+              {% else %}
+                No features selected
+              {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
 
     </div>
   </div>
