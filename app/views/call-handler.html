@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% include "includes/red-cross-header.html" %}
+{% include "includes/header-call-handler.html" %}
 
   <div class="govuk-grid-row"><br></div>
 
@@ -50,20 +50,20 @@
             </legend>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-car" name="vehicle-type" type="radio" value="One person" {{ checked("vehicle-type", "One person") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-car">
+                <input class="govuk-radios__input" id="vehicle-type-car" name="number-needing-support" type="radio" value="One person" {{ checked("number-needing-support", "One person") }}>
+                <label class="govuk-label govuk-radios__label" for="number-needing-support-car">
                   One person
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-lorry" name="vehicle-type" type="radio" value="A family or group" {{ checked("vehicle-type", "A family or group") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-lorry">
+                <input class="govuk-radios__input" id="number-needing-support-lorry" name="number-needing-support" type="radio" value="A family or group" {{ checked("number-needing-support", "A family or group") }}>
+                <label class="govuk-label govuk-radios__label" for="number-needing-support-lorry">
                   A family or group
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-motorcycle" name="vehicle-type" type="radio" value="Multiple-groups" {{ checked("vehicle-type", "Multiple-groups") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-motorcycle">
+                <input class="govuk-radios__input" id="number-needing-support-motorcycle" name="number-needing-support" type="radio" value="Multiple-groups" {{ checked("number-needing-support", "Multiple-groups") }}>
+                <label class="govuk-label govuk-radios__label" for="number-needing-support-motorcycle">
                   Multiple groups
                 </label>
               </div>
@@ -119,17 +119,14 @@
 
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional">
+                  <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="other support" data-aria-controls="conditional-citizenship-conditional">
                   <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                     Other support
                   </label>
                 </div>
                 <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional">
                   <div class="govuk-form-group">
-                    <label class="govuk-label" for="contact-by-email">
-                      Email address
-                    </label>
-                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                    <input class="govuk-input" id="contact-by-email" name="other-support-needed">
                   </div>
 
               </div>

@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% include "includes/red-cross-header.html" %}
+{% include "includes/header-call-handler.html" %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
@@ -50,7 +50,7 @@
             Number needing support
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['vehicle-type'] }}
+            {{ data['number-needing-support'] }}{{ feature }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/docs/examples/pass-data/vehicle-type">
@@ -63,7 +63,7 @@
             Support needed
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['support-needed'] }}
+            {{ data['support-needed'] }}{{ data['other-support-needed'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
@@ -122,13 +122,19 @@
                   Energy companies
                 </label>
               </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
+                  Central government
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
 
       <h2 class="govuk-heading-m">Now send information</h2>
 
-      <p>By submitting this information information will be made available to coordinate support from Red Cross and other Category 1 and 2 responders. </p>
+      <p>By submitting this information it will be made available to coordinate support from Red Cross and along with selected Category 1 and 2 responders. </p>
 
         <input type="hidden" name="answers-checked" value="true">
 
