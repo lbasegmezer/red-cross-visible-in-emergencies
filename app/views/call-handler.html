@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
-  Cumbria floods 2019
+  Barking flood 2019
 {% endblock %}
 
 {% block content %}
@@ -10,10 +10,10 @@
 
   <div class="govuk-grid-row"><br></div>
 
+  <form method="post" class="form"><!-- link to next page -->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
-
-      <form method="post" class="form"><!-- link to next page -->
 
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
@@ -23,6 +23,40 @@
           </h1>
           <input class="govuk-input" id="registration-number" name="first-name" value="{{ data['caller-name'] }}" type="text">
         </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="registration-number">
+                Is the caller in a safe place?
+              </label>
+            </h1>
+            <div class="govuk-radios govuk-radios--conditional govuk-radios--small" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="safe-place-conditional" name="how-contacted" type="radio" value="no" data-aria-controls="conditional-safe-place-conditional">
+                <label class="govuk-label govuk-radios__label" for="safe-place-conditional">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-safe-place-conditional">
+                <div class="govuk-form-group">
+                  <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="background-color: #d4351c; margin-bottom: 0px;">
+                    Redirect call to 999
+                    <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+                      <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                  Yes
+                </label>
+              </div>      
+            </div>
+          </fieldset>
+        </div>    
 
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
@@ -55,7 +89,7 @@
                 How many people need support
               </h1>
             </legend>
-            <div class="govuk-radios">
+            <div class="govuk-radios govuk-radios--small">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="vehicle-type-car" name="number-needing-support" type="radio" value="One person" {{ checked("number-needing-support", "One person") }}>
                 <label class="govuk-label govuk-radios__label" for="number-needing-support-car">
@@ -85,10 +119,7 @@
                 What support is needed
               </h1>
             </legend>
-            <span id="citizenship-conditional-hint" class="govuk-hint">
-              Select all options that are relevant.
-            </span>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
