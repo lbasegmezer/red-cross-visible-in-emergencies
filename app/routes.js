@@ -17,7 +17,9 @@ router.post('/call-handler', function (req, res) {
     '153117de-1f08-4e80-b12d-891f111c6bed',
     // `emailAddress` here needs to match the name of the form field in
     // your HTML page
-    req.body.emailAddress
+    req.body.emailAddress //'personalisation': {
+    //'first-name': req.session.data['first-name']
+//}
   );
 
   // This is the URL the users will be redirected to once the email
