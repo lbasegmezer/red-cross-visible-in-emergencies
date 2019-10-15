@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
-  Barking flood 2019
+  {% include "includes/emergency-name.html" %}
 {% endblock %}
 
 {% block content %}
@@ -240,7 +240,7 @@
                     </div>
                     <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-housing">
                       <div class="govuk-form-group">
-                          <p>Share information with <span style="font-weight: 700;">London Borough of Barking and Dagenham</span>
+                          <p>Share information with <span style="font-weight: 700;">{% include "includes/local-authority-name.html" %}</span>
                           </p>
                       </div>
                   </div>

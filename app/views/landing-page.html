@@ -1,0 +1,346 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {% include "includes/emergency-name.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/header-public.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">
+        {% include "includes/emergency-name.html" %}
+      </h1>
+
+      <p></p>
+
+      <!--<p class="govuk-body-l">
+        Free and confidential support is available for people affected by the flooding in Derry. 
+      </p>-->
+
+      <p class="govuk-body-l">
+        We will do everything we can to support you, your family and neighbours. When we cannot support you directly, will we put you in contact with organisations who can. 
+      </p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-s">
+              Emotional support
+            </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Red Cross emotional support
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">
+                  Trained Red Cross people can provide emotional over the phone or face to face at the local support centre. 
+                </p>
+                {% include "includes/speak-to-advisor.html" %} to get this support.
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  HSC counselling
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">
+                  HSC provides professional emotional support for people affected by the floods. This will begin a face to face assessment with a trained professional from the NHS.
+                </p>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+
+            <br> 
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <h4 class="govuk-heading-s">
+            Temporary accommodation
+          </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2 data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Council temporary accommodation
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">{% include "includes/local-authority-name.html" %} can provide overnight shelter and temporary housing to people who've had to evacuate their homes.</p>
+
+                <p class="govuk-body">Temporary acommendation includes:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Beds at local help centre</li>
+                  <li>Rooms at local hotels</li>
+                  <li>Rental properties in and around Derry</li>
+                  <li>Rental properties in neighbouring areas</li>
+                </ul>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2 data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Insurance temporary accommodation
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">If you have home insurance, your insurance company should pay for you to for somewhere to stay while your home is being repaired.</p>
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2 data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Staying with family and friends
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">If you can, go to family or friends for the night while we support you with your next steps.</p>
+              </div>
+            </details>
+
+            <br>
+
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-s">
+              Leaving your home
+            </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What to take with you
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">
+                  If you able to, take essentials for the next fews day like prescription medicine and important documents.
+                </p>
+                <p class="govuk-body">{% include "includes/speak-to-advisor.html" %} to advise you on what to take. 
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Securing your home
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">
+                  If it is safe to, turn off your electricity and gas. Then lock up your home while you've been evacuated. 
+                </p>
+                {% include "includes/speak-to-advisor.html" %} to advise on how to do this. 
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Taking your pets
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">
+                  Holding text
+                </p>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+            <br>
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-s">
+              Basic supplies and cash for living costs
+            </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Red Cross cash cards
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Red Cross can provide <span style="font-weight: 700;">£40 a day</span> for living costs like food, transport or anything else you need day to day.</p>
+                {% include "includes/speak-to-advisor.html" %} to advise on how to do this. 
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Baisc supplies at local support centre
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Supplies like food and clothes are availble at the local rest centre run by {% include "includes/local-authority-name.html" %}</p>
+
+                {% include "includes/rest-centre-address.html" %}
+
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Replacement medcine
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">If you left important medicine at home, HSC can organise to get you some more.</p>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting more medicine.
+              </div>
+            </details>
+            <br>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-s">
+              Support for family and neighbours
+            </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Support for children
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">We can help organise support for children in your care, such as baby supplies and specialist counselling.</p>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Get support for someone else
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">You can get support on behalf of someone else. For example family members, neighbours or anyone you know who's been affected by the floods, is vulnerable and might not be able to get support without assistance.</p>
+                {% include "includes/speak-to-advisor.html" %} to get this support. 
+              </div>
+            </details>
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-s">
+              Insurance and repairs
+            </h4>
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Insurance advice
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Money Advice Service can provide free and impartial insurance advice to help you navigate making a claim with an insurance company.</p>
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Grants to repair your home and replace lost possessions
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Local councils and central government can provide financial grants to help pay to repair your home and replace lost possessions.</p> 
+                {% include "includes/speak-to-advisor.html" %} to assist you getting this support.
+              </div>
+            </details>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="govuk-grid-row" id="call-advisor"><!-- call centre -->
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-l">
+          Call free 24 hours a day
+        </h2>
+        <p>Our trained people are ready to take your call. Providing free and confidential support and advice.</p>
+        <p>Telephone free:<br>
+          <span style="font-weight: 700;">08000 000 000</span>
+        </p>
+
+    </div>
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-panel govuk-panel--confirmation" style="background-color: #ffffff; color: #b1b4b6; border: 3px #b1b4b6 solid; font-size: 24px;">
+          <div class="govuk-panel__body">
+            Image of call handler and interface<br>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div class="govuk-grid-row"><!-- rest centre -->
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-l">
+          Visit local support centre
+        </h2>
+        <p>The local council opened a space for people affected by the flooding. Red Cross people will be at the centre to provide practical.</p>
+
+        {% include "includes/rest-centre-address.html" %}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What support is available at the support centre?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Placeholder text
+          </div>
+        </details>
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-panel govuk-panel--confirmation" style="background-color: #ffffff; color: #b1b4b6; border: 3px #b1b4b6 solid; font-size: 24px;">
+          <div class="govuk-panel__body">
+            Image of rest centre<br>
+          </div>
+        </div>
+    </div>
+    
+  </div>
+
+  <br><br>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-l">
+          Contact us online
+        </h2>
+        <p>Fill out a form online to get support from us and other organisations.</p> 
+
+        <p>You'll be asked a few questions like what support you need and how you would liked to be contacted. It takes 7 minutes on average to fill out the online form.</p>
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="background-color: #ed1c24;">
+          Start now
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
