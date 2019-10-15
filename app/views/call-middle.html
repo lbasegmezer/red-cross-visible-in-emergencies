@@ -27,7 +27,7 @@
 
           <div>
             <p>
-              Current call / <span style="background-color: yellow;"><label id="minutes">00</label>:<label id="seconds">00</label><br></span>
+              Current call
               <label class="govuk-label govuk-label--l">
                 077608165367 
               </label>
@@ -50,9 +50,11 @@
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="event-name">
-            Where are they staying tonight
-          </label>
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="registration-number">
+              Where are they staying tonight
+            </label>
+          </h1>
           <input class="govuk-input" id="event-name" name="event-name" type="text">
         </div>
 
@@ -66,7 +68,7 @@
               Summary notes
             </label>
           </h1>
-          <textarea class="govuk-textarea govuk-js-character-count " id="registration-number" name="handler-notes" value="{{ data['handler-notes'] }}" rows="7" aria-describedby="with-hint-info with-hint-hint">
+          <textarea class="govuk-textarea" id="more-detail" name="more-notes" rows="5" aria-describedby="more-detail-hint" value="{{ data['initial-notes'] }}"></textarea>
           </textarea>
 
         </div>
@@ -78,7 +80,7 @@
               <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                   <h1 class="govuk-fieldset__heading">
-                    Who needs help?
+                    Who needs support?
                   </h1>
                 </legend>
 
@@ -86,7 +88,7 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="how-many-people-1">
                   <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                    Just the personl calling
+                    The personl calling
                   </label>
                 </div>
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
