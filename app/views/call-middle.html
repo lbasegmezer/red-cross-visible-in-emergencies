@@ -86,7 +86,7 @@
               Summary notes
             </label>
           </h1>
-          <textarea class="govuk-textarea" id="more-detail" name="more-notes" rows="5" aria-describedby="more-detail-hint" value="{{ data['initial-notes'] }}"></textarea>
+          <textarea class="govuk-textarea" id="more-detail" name="more-notes" rows="5" aria-describedby="more-detail-hint" placeholder="{{ data['initial-notes'] }}"></textarea>
           </textarea>
 
         </div>
@@ -457,7 +457,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-                No - email them
+                Email
               </label>
             </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
@@ -465,9 +465,9 @@
                 <label class="govuk-label" for="contact-by-email">
                   Email address
                 </label>
-                <!-- send email using Notify -->
-                <input class="govuk-input" id="email-address" name="emailAddress" type="text">
+                <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="emailAddress" type="email" spellcheck="false">
               </div>
+
             </div>
           </div>
         </fieldset>
