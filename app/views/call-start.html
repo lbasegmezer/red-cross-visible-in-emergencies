@@ -13,6 +13,9 @@
   <form action="/call-middle" method="post" class="form">
 
   <div class="govuk-grid-row" style="float: center;">
+    <div class="govuk-grid-column-one-quarter"><!--offset column-->
+      <br>
+    </div>    
     <div class="govuk-grid-column-one-quarter">
 
         <div class="govuk-panel govuk-panel--confirmation" style="text-align: left; padding-bottom: 0px; background-color: #fff; border: 3px #1d70b8 solid;">
@@ -20,7 +23,7 @@
           <div>
             <p>
               Current call<!-- / <span style="background-color: yellow;"><label id="minutes">00</label>:<label id="secondsborder: 3px #b1b4b6 solid;">00</label><br></span>-->
-              <label class="govuk-label govuk-label--l">
+              <label class="govuk-label govuk-label--m">
                 077608165367 
               </label>
             </p>
@@ -76,7 +79,12 @@
             Name of caller
           </label>
         </h1>
-        <input class="govuk-input" id="registration-number" name="caller-name" value="{{ data['caller-name'] }}" type="text">
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width:100%;">
+            <input autocomplete="off" class="govuk-input" id="myInput" type="text" name="caller-name" value="{{ data['caller-name'] }}">
+          </div>
+          <input type="submit" hidden>
+        </form>
       </div>
 
       <div class="govuk-form-group"><!-- name -->
@@ -97,55 +105,16 @@
           <textarea class="govuk-textarea" id="more-detail" name="initial-notes" rows="5" aria-describedby="more-detail-hint"></textarea>
           </textarea>
 
+                <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Fill out other information</button>
+      
+      </form>
+
         </div>
 
     </div><!-- third column -->
 
-    <div class="govuk-grid-column-one-quarter"><!-- third column -->
-
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m"><!-- Information and tips -->
-        <h1 class="govuk-fieldset__heading">
-          Tips and information
-        </h1>
-      </legend>
-
-      <div class="govuk-tabs" data-module="govuk-tabs"><!-- advice tabs -->
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#carlisle">
-              Rest centre
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#penrith">
-              Insurance
-            </a>
-          </li>
-        </ul>
-        <section class="govuk-tabs__panel" id="carlisle">
-          <h2 class="govuk-heading-m">Rivergate Centre</h2>
-          <p>Minter Road, Barking, IG11 0FJ</p>
-
-        </section>
-        <!--<section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="kendal">
-          <p>Needs content - potentially part of<a href="https://www.redcross.org.uk/get-help/prepare-for-emergencies/prepare-an-emergency-kit">this content on BRC website</a></p>
-
-        </section>-->
-
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="penrith">
-          <h2 class="govuk-heading-m">Content needed</p>
-
-        </section>
-
-      </div>
-
-      <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Fill out other information</button>
-      
-      </form><!-- end of form group with link to next page -->
-
+    <div class="govuk-grid-column-one-quarter"><!-- offset column -->
+        <br>
     </div><!-- third column -->
 
   </div><!-- row -->

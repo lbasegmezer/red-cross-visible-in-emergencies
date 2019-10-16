@@ -40,22 +40,40 @@
 
         </div>    
 
-        <div class="govuk-form-group"><!-- location -->
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="registration-number">
-              Current location
-            </label>
-          </h1>
-          <input class="govuk-input" id="registration-number" name="caller-location" value="{{ data['caller-location'] }}" type="text">
-        </div>
+        <div class="govuk-panel govuk-panel--confirmation" style="text-align: left; padding-bottom: 0px; background-color: #fff; border: 3px #b1b4b6 solid;">
 
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="registration-number">
-              Where are they staying tonight
-            </label>
-          </h1>
-          <input class="govuk-input" id="event-name" name="event-name" type="text">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Locations
+            </h1>
+          </legend>
+
+          <div class="govuk-form-group"><!-- flooded location -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where has been flooded
+              </label>
+            </h1>
+            <input class="govuk-input" id="registration-number" name="incident-location" value="{{ data['incident-location'] }}" type="text">
+          </div>
+
+          <div class="govuk-form-group"><!-- current location -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where are they calling from
+              </label>
+            </h1>
+            <input class="govuk-input" id="registration-number" name="caller-location" value="{{ data['caller-location'] }}" type="text">
+          </div>
+
+          <div class="govuk-form-group"><!-- accommodation for tonight -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where are they staying tonight
+              </label>
+            </h1>
+            <input class="govuk-input" id="event-name" name="staying-tonight" type="text">
+          </div>
         </div>
 
     </div>
@@ -231,25 +249,46 @@
                 </legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <label class="govuk-label govuk-checkboxes__label">
+                      Emotional support
+                    </label>
+                  </div>
+
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-emotional-support">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-counselling">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
-                        Emotional support
+                        Counselling
                       </label>
                     </div>
-                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-emotional-support">
+                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-counselling">
                       <div class="govuk-form-group">
-                          <p>Share information with <span style="font-weight: 700;">NHS Barking and Dagenham</span>
+                          <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
                           </p>
                       </div>
                   </div>
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-medicine">
+                      <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                        Replacement medicine
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-medicine">
+                      <div class="govuk-form-group">
+                          <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
+                          </p>
+                      </div>
+                  </div>
+
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
+                    <div class="govuk-checkboxes__item">
                       <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-housing">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
-                        Temporary housing
+                        Temporary accommodation
                       </label>
                     </div>
                     <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-housing">
@@ -269,8 +308,22 @@
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
-                      Financial assistance
+                      Cash card
                     </label>
+                  </div>
+
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-pets">
+                      <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                        Pets
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-pets">
+                      <div class="govuk-form-group">
+                          <p>Share information with <span style="font-weight: 700;">USPCA</span>
+                          </p>
+                      </div>
                   </div>
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -312,7 +365,6 @@
                       <div class="govuk-form-group">
                         <input class="govuk-input" id="contact-by-email" name="other-support-needed">
                       </div>
-
                   </div>
 
                 </div>
@@ -344,13 +396,13 @@
           </li>
           <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#penrith">
-              Insurance
+              Contact numbers
             </a>
           </li>
         </ul>
         <section class="govuk-tabs__panel" id="carlisle">
-          <h2 class="govuk-heading-m">Rivergate Centre</h2>
-          <p>Minter Road, Barking, IG11 0FJ</p>
+        <p>Address:<br>
+        <span style="font-weight: 700;">{% include "includes/rest-centre-address.html" %}</span>
 
         </section>
         <!--<section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="kendal">
