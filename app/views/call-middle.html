@@ -279,6 +279,10 @@
                     </div>
                     <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-medicine">
                       <div class="govuk-form-group">
+                          <label class="govuk-label" for="contact-by-text">
+                            Medication name
+                          </label>
+                          <input class="govuk-input" id="contact-by-text" name="contact-by-text" type="tel"><br><br>
                           <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
                           </p>
                       </div>
@@ -354,6 +358,20 @@
                       </div>
                   </div>
 
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-transport">
+                      <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                        Transport to rest centre
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-transport">
+                      <div class="govuk-form-group">
+                          <p>Share information with <span style="font-weight: 700;">{% include "includes/local-authority-name.html" %}</span>
+                          </p>
+                      </div>
+                  </div>
+
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
                       <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="other support" data-aria-controls="conditional-other-support">
@@ -417,6 +435,8 @@
 
       </div>
 
+      <br><br>
+
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -465,7 +485,7 @@
                 <label class="govuk-label" for="contact-by-email">
                   Email address
                 </label>
-                <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="emailAddress" type="email" spellcheck="false">
+                <input class="govuk-input" id="email-address" name="emailAddress" type="text">
               </div>
 
             </div>
