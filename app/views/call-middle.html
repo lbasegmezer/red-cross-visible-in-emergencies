@@ -24,7 +24,7 @@
           <div>
             <p>
               Current call
-              <label class="govuk-label govuk-label--l">
+              <label class="govuk-label govuk-label--m">
                 077608165367 
               </label>
             </p>
@@ -44,13 +44,15 @@
             </h1>
           </legend>
 
+          <form action="/check-answers" class="form" method="post"><!-- add random comma for some reason - to remove comma move close bracket properly -->
+
           <div class="govuk-form-group"><!-- flooded location -->
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label" for="registration-number">
                 Where has been flooded
               </label>
             </h1>
-            <input class="govuk-input" id="registration-number" name="incident-location" value="{{ data['incident-location'] }}" type="text">
+            <input class="govuk-input" id="registration-number" name="incident-location" type="text">
           </div>
 
           <div class="govuk-form-group"><!-- current location -->
@@ -100,19 +102,19 @@
 
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="how-many-conditional-2" name="how-many" type="radio" value="phone" data-aria-controls="how-many-people-1">
-                  <label class="govuk-label govuk-radios__label" for="how-many-conditional-2">
+                  <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="The person who called" data-aria-controls="how_many-people-1">
+                  <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
                     The personl calling
                   </label>
                 </div>
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="how-many-conditional-2" name="how-many" type="radio" value="phone" data-aria-controls="how-many-people-2">
-                    <label class="govuk-label govuk-radios__label" for="how-many-conditional-2">
+                    <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="Someone else" data-aria-controls="how_many-people-2">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
                       Someone else
                     </label>
                   </div>
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how-many-people-2">
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-2">
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="contact-by-phone">
                         Name
@@ -122,12 +124,12 @@
 
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="how-many-conditional-2" name="how-many" type="radio" value="phone" data-aria-controls="how-many-people-3">
-                    <label class="govuk-label govuk-radios__label" for="how-many-conditional-2">
+                    <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="A family or group" data-aria-controls="how_many-people-3">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
                       A family or group
                     </label>
                   </div>
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how-many-people-3">
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-3">
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="contact-by-phone">
                         Number of adults
@@ -143,12 +145,12 @@
 
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="how-many-conditional" name="how-many" type="radio" value="email" data-aria-controls="how-many-people-4">
-                    <label class="govuk-label govuk-radios__label" for="how-many-conditional">
+                    <input class="govuk-radios__input" id="how_many-conditional" name="how_many" type="radio" value="Multiple groups" data-aria-controls="how_many-people-4">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional">
                       Multiple groups
                     </label>
                   </div>
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how-many-people-4">
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-4">
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="contact-by-email">
                         How many people
@@ -174,22 +176,22 @@
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="advice-actions" type="checkbox" value="find a safe place" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
                       Find a safe place
                     </label>
                   </div>
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="advice-actions" type="checkbox" value="Stay with friends and family" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
-                      Go to friend and family
+                      Stay to friend and family
                     </label>
                   </div>
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-insurance-adice">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="advice-actions" type="checkbox" value="visit local rest centre" data-aria-controls="conditional-insurance-adice">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Visit local rest centre
                       </label>
@@ -202,22 +204,22 @@
                   </div>
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="advice-actions" type="checkbox" value="request transport to rest centre" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
                       Request transport
                     </label>
                   </div>
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="advice-actions" type="checkbox" value="call their insurance company" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
-                      Call your insurer
+                      Call their insurance company
                     </label>
                   </div>
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="other support" data-aria-controls="conditional-other-support">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="advice-actions" type="checkbox" value="other support" data-aria-controls="conditional-other-support">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Other advice and actions
                       </label>
@@ -246,7 +248,7 @@
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
                       Emotional support
                     </label>
@@ -254,7 +256,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-counselling">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="counselling" data-aria-controls="conditional-counselling">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Counselling
                       </label>
@@ -268,7 +270,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-medicine">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="replacement medicine" data-aria-controls="conditional-medicine">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Replacement medicine
                       </label>
@@ -276,9 +278,9 @@
                     <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-medicine">
                       <div class="govuk-form-group">
                           <label class="govuk-label" for="contact-by-text">
-                            Medication name
+                            Medicine name
                           </label>
-                          <input class="govuk-input" id="contact-by-text" name="contact-by-text" type="tel"><br><br>
+                          <input class="govuk-input" id="contact-by-text" name="medicine name" type="tel"><br><br>
                           <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
                           </p>
                       </div>
@@ -286,7 +288,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-housing">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="temporary accommodation" data-aria-controls="conditional-housing">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Temporary accommodation
                       </label>
@@ -299,14 +301,14 @@
                   </div>
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2">
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="support for a family member, friend or neighbour" data-aria-controls="conditional-citizenship-conditional-2">
                     <label class="govuk-label govuk-checkboxes__label">
                       Support for a family member, friend or neighbour
                     </label>
                   </div>
 
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="financial assistance" data-aria-controls="conditional-citizenship-conditional-2" checked>
+                    <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="cash card" data-aria-controls="conditional-citizenship-conditional-2" checked>
                     <label class="govuk-label govuk-checkboxes__label">
                       Cash card
                     </label>
@@ -314,7 +316,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-pets">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="pets" data-aria-controls="conditional-pets">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Pets
                       </label>
@@ -328,7 +330,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-insurance-adice">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="insurance advice" data-aria-controls="conditional-insurance-adice">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Insurance advice
                       </label>
@@ -356,7 +358,7 @@
 
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-transport">
+                      <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="transport to rest centre" data-aria-controls="conditional-transport">
                       <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
                         Transport to rest centre
                       </label>
@@ -391,7 +393,6 @@
     </div><!---->
 
     <div class="govuk-grid-column-one-quarter"><!-- third column -->
-      <form action="/check-answers" class="form" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">

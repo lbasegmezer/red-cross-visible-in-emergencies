@@ -25,17 +25,43 @@
       
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          <dt class="govuk-summary-list__key">
             Phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            077608165367 
+             077608165367 
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/call-middle">
-              Change <span class="govuk-visually-hidden">registration number</span>
+              Change <span class="govuk-visually-hidden">vehicle features</span>
             </a>
-          </dd> 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who needs support
+          </dt>
+          <dd class="govuk-summary-list__value">
+             {{ data['how_many'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/call-middle">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Support needed
+          </dt>
+          <dd class="govuk-summary-list__value">
+             {{ data['support-needed'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/call-middle">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-third">
@@ -77,42 +103,43 @@
           </dd> 
         </div>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Number needing support
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Advice given and follow up action
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['number-needing-support'] }}{{ feature }}
+            {{ data['advice-actions'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/call-middle">
-              Change <span class="govuk-visually-hidden">vehicle type</span>
+              Change <span class="govuk-visually-hidden">registration number</span>
             </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Support needed
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['support-needed'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/call-middle">
-              Change <span class="govuk-visually-hidden">vehicle features</span>
-            </a>
-          </dd>
+          </dd> 
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             How to contact
           </dt>
           <dd class="govuk-summary-list__value">
+            {{ data['how-contacted'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">vehicle features</span>
             </a>
           </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['emailAddress'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/call-middle">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
         </div>
       </dl>
 
