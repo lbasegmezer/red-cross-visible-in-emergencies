@@ -7,16 +7,16 @@
 
 {% block content %}
 
-{% include "includes/header-public.html" %}
-
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-one-quarter"><!--offset column-->
+      <br>
+    </div> 
+    <div class="govuk-grid-column-one-half">
+      {% include "includes/header-public.html" %}
       <br>
       <h1 class="govuk-heading-xl">
         {% include "includes/emergency-name.html" %}
       </h1>
-
-      <p></p>
 
       <!--<p class="govuk-body-l">
         Free and confidential support is available for people affected by the flooding in Derry. 
@@ -180,7 +180,7 @@
               <div class="govuk-details__text">
                 <p class="govuk-body">Supplies like food and clothes are availble at the local support centre run by {% include "includes/local-authority-name.html" %}</p>
 
-                <p>Address:<br>
+                <p>Address:</p><br>
                 <span style="font-weight: 700;">{% include "includes/rest-centre-address.html" %}</span>
 
               </div>
@@ -200,7 +200,7 @@
         </div>
       </div>
 
-      <div class="govuk-grid-row">
+      <div class="govuk-grid-row"><!-- friends and family -->
         <div class="govuk-grid-column-one-half">
             <h4 class="govuk-heading-s">
               Support for family and neighbours
@@ -228,7 +228,7 @@
               </div>
             </details>
         </div>
-        <div class="govuk-grid-column-one-half">
+        <div class="govuk-grid-column-one-half"><!-- insurance -->
             <h4 class="govuk-heading-s">
               Insurance and repairs
             </h4>
@@ -256,68 +256,70 @@
               </div>
             </details>
         </div>
-      </div>
       
-    </div>
-  </div>
+      </div>
 
-  <br><br>
+      <br><br>
 
-  <div class="govuk-grid-row" id="call-advisor"><!-- call centre -->
+      <div class="govuk-grid-row" id="call-advisor"><!-- call centre -->
 
-    <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-l">
-          Call free 24 hours a day
-        </h2>
-        <p>Our trained people are ready to take your call. Providing free and confidential support and advice.</p>
-        <p>Telephone free:<br>
-          <span style="font-weight: 700;">08000 000 000</span>
-        </p>
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-m">
+              Call free 24 hours a day
+            </h2>
 
-    </div>
-    <div class="govuk-grid-column-one-third">
-      <img src="/public/images/call-handler.jpeg" style="width: 100%;">
-    </div>
+            <p class="govuk-body">Telephone free:<br>
+              <span style="font-weight: 700;">0800 871 11 00</span>
+            </p>
 
-  </div>
+            <p>Our trained people are ready to take your call. Providing free and confidential support and advice.</p>
 
-  <br><br>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <img src="/public/images/call-handler.jpeg" style="width: 100%;">
+        </div>
 
-  <div class="govuk-grid-row" id="call-advisor"><!-- rest centre -->
+      </div>
 
-    <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-l">
-          Visit local support centre
-        </h2>
-        <p>The local council opened a space for people affected by the flooding. Red Cross people will be at the centre to provide practical support and advice.</p>
+      <br><br>
 
-        <p>Address:<br>
-        <span style="font-weight: 700;">{% include "includes/rest-centre-address.html" %}</span>
+      <div class="govuk-grid-row" id="call-advisor"><!-- rest centre -->
 
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              What support is available at the support centre?
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            Placeholder text
-          </div>
-        </details>
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-m">
+              Visit local support centre
+            </h2>
 
-    </div>
-    <div class="govuk-grid-column-one-third">
-      <img src="/public/images/rest-centre.jpg" style="width: 100%;">
-    </div>
+            <p>Address:<br>
+              <span style="font-weight: 700;">{% include "includes/rest-centre-address.html" %}</span>
+            </p>
 
-  </div>
+            <p>The local council opened a space for people affected by the flooding. Red Cross people will be at the centre to provide practical support and advice.</p>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What support is available at the support centre?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                Placeholder text
+              </div>
+            </details>
+
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <img src="/public/images/rest-centre.jpg" style="width: 100%;">
+        </div>
+
+      </div>
 
   <br><br>
 
   <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-half">
-        <h2 class="govuk-heading-l">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
           Contact us online
         </h2>
         <p>Fill out a form online to get support from us and other organisations.</p> 
@@ -333,6 +335,8 @@
     </div>
 
   </div>
-
+      
+    </div>
+  </div>
 
 {% endblock %}
