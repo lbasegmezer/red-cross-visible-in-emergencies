@@ -8,12 +8,8 @@
 
 {% include "includes/header-call-handler.html" %}
 
-  <div class="govuk-grid-row"><br></div>
-
-  <form action="/confirmation-page" method="post" class="form"><!-- link to next page -->
-
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-grid-column-one-quarter"><!-- first column -->
 
           <div class="govuk-panel govuk-panel--confirmation" style="background-color: #1d70b8;">
             <div class="govuk-panel__body">
@@ -72,13 +68,13 @@
                 Where are they staying tonight
               </label>
             </h1>
-            <input class="govuk-input" id="event-name" name="staying-tonight" type="text">
+            <input class="govuk-input" id="registration-number" name="staying-tonight" value="{{ data['staying-tonight'] }}" type="text">
           </div>
         </div>
 
-    </div>
+    </div><!-- first column -->
 
-    <div class="govuk-grid-column-one-half">
+    <div class="govuk-grid-column-one-half"><!-- middle column -->
 
         <div class="govuk-form-group"><!-- caller notes -->
           <h1 class="govuk-label-wrapper">
@@ -392,113 +388,72 @@
 
         </div>
 
-    </div><!-- second column -->
+    </div><!---->
 
     <div class="govuk-grid-column-one-quarter"><!-- third column -->
+      <form action="/check-answers" class="form" method="post">
 
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m"><!-- Information and tips -->
-        <h1 class="govuk-fieldset__heading">
-          Tips and information
-        </h1>
-      </legend>
-
-      <div class="govuk-tabs" data-module="govuk-tabs"><!-- advice tabs -->
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#carlisle">
-              Rest centre
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#penrith">
-              Contact numbers
-            </a>
-          </li>
-        </ul>
-        <section class="govuk-tabs__panel" id="carlisle">
-        <p>Address:<br>
-        <span style="font-weight: 700;">{% include "includes/rest-centre-address.html" %}</span>
-
-        </section>
-        <!--<section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="kendal">
-          <p>Needs content - potentially part of<a href="https://www.redcross.org.uk/get-help/prepare-for-emergencies/prepare-an-emergency-kit">this content on BRC website</a></p>
-
-        </section>-->
-
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="penrith">
-          <h2 class="govuk-heading-m">Content needed</p>
-
-        </section>
-
-      </div>
-
-      <br><br>
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              Contact caller on this number?
-            </h1>
-          </legend>
-          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                Yes - call them up
-              </label>
-            </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="contact-by-phone">
-                  Phone number
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                How would caller prefer to be contacted?
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                  Email
                 </label>
-                <input class="govuk-input" id="contact-by-phone" name="contact-by-phone" type="tel" placeholder="077608165367">
               </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Email address
+                  </label>
+                  <input class="govuk-input" id="email-address" name="emailAddress" type="text">
+                </div>
 
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="text" data-aria-controls="conditional-how-contacted-conditional-3">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
-                Yes - send a text message
-              </label>
-            </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="contact-by-text">
-                  Mobile phone number
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                  Phone
                 </label>
-                <input class="govuk-input" id="contact-by-text" name="contact-by-text" type="tel" placeholder="077608165367">
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-phone">
+                    Phone number
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel">
+                </div>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="text" data-aria-controls="conditional-how-contacted-conditional-3">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                  Text message
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-text">
+                    Mobile phone number
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel">
+                </div>
+
               </div>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-                Email
-              </label>
-            </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="contact-by-email">
-                  Email address
-                </label>
-                <input class="govuk-input" id="email-address" name="emailAddress" type="text">
-              </div>
+          </fieldset>
+        </div>
 
-            </div>
-          </div>
-        </fieldset>
-      </div><!-- how to contact -->
+        <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Preview information before sending</button>
 
-      <button style="background-color: #1d70b8;" class="govuk-button" data-module="govuk-button">Preview information before sending</button>
-      
-      </form><!-- end of form group with link to next page -->
+      </form>
+    </div>
 
-    </div><!-- third column -->
-
-  </div><!-- row -->
-
+  </div>
 {% endblock %}

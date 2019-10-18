@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
-  Cumbria floods 2019
+  {% include "includes/emergency-name.html" %}
 {% endblock %}
 
 {% block content %}
@@ -9,38 +9,69 @@
 {% include "includes/header-call-handler.html" %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-column-one-quarter"><!--offset column-->
+      <br>
+    </div>   
+
+    <div class="govuk-grid-column-one-half">
       <h1 class="govuk-heading-l">
         Check information before sending
       </h1>
 
       <h2 class="govuk-heading-m">
-        Call details
+        {{ data['caller-name'] }}
       </h2>
       
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-third">
-            Name of caller
+            Phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['caller-name'] }}
+            077608165367 
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-registration">
+            <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">registration number</span>
             </a>
           </dd> 
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-third">
-            Notes
+            Where has been flooded
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['handler-notes'] }}
+            {{ data['incident-location'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-registration">
+            <a class="govuk-link" href="/call-middle">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Where did they calling from
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['caller-location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/call-middle">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Where are they staying tonight
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['staying-tonight'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">registration number</span>
             </a>
           </dd> 
@@ -53,7 +84,7 @@
             {{ data['number-needing-support'] }}{{ feature }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-type">
+            <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">vehicle type</span>
             </a>
           </dd>
@@ -63,10 +94,10 @@
             Support needed
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['support-needed'] }}{{ data['other-support-needed'] }}
+            {{ data['support-needed'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+            <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">vehicle features</span>
             </a>
           </dd>
@@ -76,88 +107,32 @@
             How to contact
           </dt>
           <dd class="govuk-summary-list__value">
-              % for feature in data['how-contacted'] %}
-                <li>{{ feature }}</li>
-              {% else %}
-                <li>No features selected</li>
-              {% endfor %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+            <a class="govuk-link" href="/call-middle">
               Change <span class="govuk-visually-hidden">vehicle features</span>
             </a>
           </dd>
         </div>
       </dl>
 
-    </div>
-  </div>
+      <h2 class="govuk-heading-m">Send information and confirmation</h2>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+      <p>By submitting this information it will be made available to coordinate support from Red Cross and along with selected Category 1 and 2 responders.</p>
 
-      <form action="/confirmation" method="post" novalidate>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="vehicle-features-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                Who can information be shared with?
-              </h1>
-            </legend>
-            <span id="vehicle-features-hint" class="govuk-hint">
-              Select all that apply
-            </span>
-            <div class="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-heated-seats" name="vehicle-features" type="checkbox" value="Heated seats" {{ checked("vehicle-features", "Heated seats") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-heated-seats">
-                  Cumbria Country Council
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-gps" name="vehicle-features" type="checkbox" value="GPS" {{ checked("vehicle-features", "GPS") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-gps">
-                  Fire brigade
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-gps" name="vehicle-features" type="checkbox" value="GPS" {{ checked("vehicle-features", "GPS") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-gps">
-                  NHS
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
-                  Police
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
-                  Energy companies
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="vehicle-features-radio" name="vehicle-features" type="checkbox" value="Radio" {{ checked("vehicle-features", "Radio") }}>
-                <label class="govuk-label govuk-checkboxes__label" for="vehicle-features-radio">
-                  Central government
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-      <h2 class="govuk-heading-m">Now send information</h2>
-
-      <p>By submitting this information it will be made available to coordinate support from Red Cross and along with selected Category 1 and 2 responders. </p>
+      <p>A confirmation email will be sent to <span style="font-weight: 700;">{{ data['caller-name'] }}</span></p>
 
         <input type="hidden" name="answers-checked" value="true">
 
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Send and finish
-        </button>
+      <form action="/confirmation-page" class="form" method="post">
+
+        <div class="govuk-form-group" type="hidden" >
+          <input class="govuk-input govuk-input--width-20" id="email-address" name="emailAddress" type="text" value="{{ data['emailAddress'] }}">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Send information and confirmation</button>
+
+      </form>
 
       </form>
 

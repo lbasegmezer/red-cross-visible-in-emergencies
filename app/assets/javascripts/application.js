@@ -38,7 +38,7 @@ function onClick() {
 };
 
 // autocomplete
-var names = ["Laura Basegmezer","Jo Straw","Harry Trimble","Christina Pekkola Tellez","Laura Turner"];
+var names = ["Laura Basegmezer","Jo Straw","Harry Trimble","Christina Pekkola Tellez","Laura Turner","Rosie Slater-Carr","Ian Goodman","Ian Hopper"];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
