@@ -1,0 +1,254 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {% include "includes/emergency-name.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/header-call-handler.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form action="/check-answers" class="form" method="post"><!-- add random comma for some reason - to remove comma move close bracket properly -->
+
+      <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+          Contents
+        </h2>
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#past-day">
+              Who needs help
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-week">
+              Location
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-month">
+              Notes
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-year">
+              Support
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-year">
+              Contact details
+            </a>
+          </li>
+        </ul>
+        <section class="govuk-tabs__panel" id="past-day">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+
+              <div class="govuk-form-group"><!-- name -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--m" for="registration-number">
+                    Name of caller
+                  </label>
+                </h1>
+                <form autocomplete="off" action="/action_page.php">
+                  <div class="autocomplete" style="width:100%;">
+                    <input autocomplete="off" class="govuk-input" id="myInput" type="text" name="caller-name" value="{{ data['caller-name'] }}">
+                  </div>
+                  <input type="submit" hidden>
+                </form>
+              </div>
+
+            </div>
+
+            <div class="govuk-grid-column-one-half">
+                          <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Who needs support?
+                  </h1>
+                </legend>
+
+                <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="The person who called" data-aria-controls="how_many-people-1">
+                  <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                    The personl calling
+                  </label>
+                </div>
+                <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="Someone else" data-aria-controls="how_many-people-2">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                      Someone else
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-2">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="contact-by-phone">
+                        Name
+                      </label>
+                      <input class="govuk-input" id="contact-by-phone" name="contact-by-phone" type="tel">
+                    </div>
+
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="A family or group" data-aria-controls="how_many-people-3">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                      A family or group
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-3">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="contact-by-phone">
+                        Number of adults
+                      </label>
+                      <div class="input-group number-spinner"><!-- stepper top -->
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                        <input class="govuk-input govuk-input--width-2" type="number" id="adults" name="how-many-adults" value="0" min="0" max="9" style="text-align: center;">
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                      </div><!-- stepper bottomn -->
+                    </div>
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="contact-by-phone">
+                        Number of children
+                      </label>
+                      <div class="input-group number-spinner"><!-- stepper top -->
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                        <input class="govuk-input govuk-input--width-2" type="number" id="adults" name="how-many-children" value="0" min="0" max="9" style="text-align: center;">
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                      </div><!-- stepper bottomn -->
+                    </div>
+
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="how_many-conditional" name="how_many" type="radio" value="Multiple groups" data-aria-controls="how_many-people-4">
+                    <label class="govuk-label govuk-radios__label" for="how_many-conditional">
+                      Multiple groups
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-4">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="contact-by-email">
+                        How many people
+                      </label>
+                      <div class="input-group number-spinner"><!-- stepper top -->
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                        <input class="govuk-input govuk-input--width-2" type="multiple-groups-number" id="adults" name="adults" value="0" min="0" max="9" style="text-align: center;">
+                        <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                      </div><!-- stepper bottomn -->
+                    </div>
+                  </div>
+
+                </div>
+              </fieldset>
+            </div><!-- how to contact -->
+            </div>
+
+          </div>
+
+        </section>
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+          <h2 class="govuk-heading-l">Past week</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case manager</th>
+                <th scope="col" class="govuk-table__header">Cases opened</th>
+                <th scope="col" class="govuk-table__header">Cases closed</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">David Francis</td>
+                <td class="govuk-table__cell">24</td>
+                <td class="govuk-table__cell">18</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Paul Farmer</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">20</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Rita Patel</td>
+                <td class="govuk-table__cell">24</td>
+                <td class="govuk-table__cell">27</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+          <h2 class="govuk-heading-l">Past month</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case manager</th>
+                <th scope="col" class="govuk-table__header">Cases opened</th>
+                <th scope="col" class="govuk-table__header">Cases closed</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">David Francis</td>
+                <td class="govuk-table__cell">98</td>
+                <td class="govuk-table__cell">95</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Paul Farmer</td>
+                <td class="govuk-table__cell">122</td>
+                <td class="govuk-table__cell">131</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Rita Patel</td>
+                <td class="govuk-table__cell">126</td>
+                <td class="govuk-table__cell">142</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+          <h2 class="govuk-heading-l">Past year</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case manager</th>
+                <th scope="col" class="govuk-table__header">Cases opened</th>
+                <th scope="col" class="govuk-table__header">Cases closed</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">David Francis</td>
+                <td class="govuk-table__cell">1380</td>
+                <td class="govuk-table__cell">1472</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Paul Farmer</td>
+                <td class="govuk-table__cell">1129</td>
+                <td class="govuk-table__cell">1083</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Rita Patel</td>
+                <td class="govuk-table__cell">1539</td>
+                <td class="govuk-table__cell">1265</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Preview information before sending</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
