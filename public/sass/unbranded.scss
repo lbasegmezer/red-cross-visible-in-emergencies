@@ -139,3 +139,31 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 } 
+
+@media (max-width: 576px) {
+    #redcross-logo {
+      width: 40%;
+    }
+}
+
+@media (min-width: 577px) {
+    #redcross-logo {
+      width: 80%;
+    }
+}
+
+#red-button {
+  background-color: #ee2a24; 
+}
+
+#dashboard-nav li {
+  paddding-bottom: 5px;
+}
+
+#headline-stat-box {
+   background-color:  #BFC1C3; text-align: left; color: #fff; padding-left: 15px; padding-top: 0px: padding-bottom: 0px;
+}
+
+#headline-stat-box a {
+ color: #fff;
+}

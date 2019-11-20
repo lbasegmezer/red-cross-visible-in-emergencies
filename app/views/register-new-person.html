@@ -19,54 +19,46 @@
         </h2>
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#past-day">
-              Who needs help
+            <a class="govuk-tabs__tab" href="#who">
+              Who needs support
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#past-week">
-              Location
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#past-month">
+            <a class="govuk-tabs__tab" href="#notes">
               Notes
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#past-year">
-              Support
+            <a class="govuk-tabs__tab" href="#location">
+              Location
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#past-year">
+            <a class="govuk-tabs__tab" href="#support">
+              Support needed
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#contact">
               Contact details
             </a>
           </li>
         </ul>
-        <section class="govuk-tabs__panel" id="past-day">
+        <section class="govuk-tabs__panel" id="who"><!-- who needs support -->
 
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-half">
-
-              <div class="govuk-form-group"><!-- name -->
-                <h1 class="govuk-label-wrapper">
-                  <label class="govuk-label govuk-label--m" for="registration-number">
+              <div class="govuk-form-group">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
                     Name of caller
-                  </label>
-                </h1>
-                <form autocomplete="off" action="/action_page.php">
-                  <div class="autocomplete" style="width:100%;">
-                    <input autocomplete="off" class="govuk-input" id="myInput" type="text" name="caller-name" value="{{ data['caller-name'] }}">
-                  </div>
-                  <input type="submit" hidden>
-                </form>
+                  </h1>
+                </legend>
+                <input class="govuk-input" id="event-name" name="caller-name" type="text">
               </div>
-
             </div>
-
             <div class="govuk-grid-column-one-half">
-                          <div class="govuk-form-group">
+            <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                   <h1 class="govuk-fieldset__heading">
@@ -149,100 +141,111 @@
               </fieldset>
             </div><!-- how to contact -->
             </div>
+          </div>
+
+        </section>
+
+        <section class="govuk-tabs__panel" id="notes">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <div class="govuk-form-group"><!-- caller notes -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--m" for="registration-number">
+                    Summary notes
+                  </label>
+                </h1>
+                <textarea class="govuk-textarea" id="more-detail" name="more-notes" rows="5" aria-describedby="more-detail-hint" placeholder="{{ data['initial-notes'] }}"></textarea>
+                </textarea>
+              </div>
+
+            </div>
 
           </div>
 
         </section>
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
-          <h2 class="govuk-heading-l">Past week</h2>
-          <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Case manager</th>
-                <th scope="col" class="govuk-table__header">Cases opened</th>
-                <th scope="col" class="govuk-table__header">Cases closed</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">David Francis</td>
-                <td class="govuk-table__cell">24</td>
-                <td class="govuk-table__cell">18</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Paul Farmer</td>
-                <td class="govuk-table__cell">16</td>
-                <td class="govuk-table__cell">20</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Rita Patel</td>
-                <td class="govuk-table__cell">24</td>
-                <td class="govuk-table__cell">27</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <section class="govuk-tabs__panel" id="location">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+
+
+          <div class="govuk-form-group"><!-- flooded location -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where has been flooded
+              </label>
+            </h1>
+            <input class="govuk-input" id="registration-number" name="incident-location" type="text">
+          </div>
+
+          <div class="govuk-form-group"><!-- current location -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where are they calling from
+              </label>
+            </h1>
+            <input class="govuk-input" id="registration-number" name="caller-location" value="{{ data['caller-location'] }}" type="text">
+          </div>
+
+          <div class="govuk-form-group"><!-- accommodation for tonight -->
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="registration-number">
+                Where are they staying tonight
+              </label>
+            </h1>
+            <input class="govuk-input" id="registration-number" name="staying-tonight" value="{{ data['staying-tonight'] }}" type="text">
+          </div>
+
+            </div>
+
+          </div>
 
         </section>
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
-          <h2 class="govuk-heading-l">Past month</h2>
-          <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Case manager</th>
-                <th scope="col" class="govuk-table__header">Cases opened</th>
-                <th scope="col" class="govuk-table__header">Cases closed</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">David Francis</td>
-                <td class="govuk-table__cell">98</td>
-                <td class="govuk-table__cell">95</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Paul Farmer</td>
-                <td class="govuk-table__cell">122</td>
-                <td class="govuk-table__cell">131</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Rita Patel</td>
-                <td class="govuk-table__cell">126</td>
-                <td class="govuk-table__cell">142</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <section class="govuk-tabs__panel" id="support">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                  Name of call
+                </label>
+                <input class="govuk-input" id="event-name" name="caller-name" type="text">
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-half">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                  Name of call
+                </label>
+                <input class="govuk-input" id="event-name" name="caller-name" type="text">
+              </div>
+            </div>
+          </div>
 
         </section>
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
-          <h2 class="govuk-heading-l">Past year</h2>
-          <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Case manager</th>
-                <th scope="col" class="govuk-table__header">Cases opened</th>
-                <th scope="col" class="govuk-table__header">Cases closed</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">David Francis</td>
-                <td class="govuk-table__cell">1380</td>
-                <td class="govuk-table__cell">1472</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Paul Farmer</td>
-                <td class="govuk-table__cell">1129</td>
-                <td class="govuk-table__cell">1083</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Rita Patel</td>
-                <td class="govuk-table__cell">1539</td>
-                <td class="govuk-table__cell">1265</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <section class="govuk-tabs__panel" id="contact">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                  Event name
+                </label>
+                <input class="govuk-input" id="event-name" name="caller-name" type="text">
+              </div>
+
+            </div>
+
+          </div>
 
         </section>
+
       </div>
 
       <button class="govuk-button" data-module="govuk-button" style="background-color: #1d70b8;">Preview information before sending</button>

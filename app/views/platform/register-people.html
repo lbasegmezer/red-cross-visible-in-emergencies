@@ -1,0 +1,436 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/header-platform.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h3 class="govuk-heading-m">Wellport City Council</h3>
+
+
+      <hr>
+
+      <br>
+    
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+          <ul class="govuk-list" id="dashboard-nav">
+            <li>
+              <a class="govuk-link" href="#call-advisor">Dashboard</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#contact-us-online" style="font-weight: 700;">Register people</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#visit-centre">Past emergencies</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#contact-us-online">New emergency</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#contact-us-online">Team members</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#contact-us-online">Settings</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#support-list">API integration</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-grid-column-three-quarters">
+
+          <span class="govuk-caption-l">{% include "includes/emergency-name.html" %}</span>
+          <h2 class="govuk-heading-xl">Register people</h2>
+
+          <form action="/platform/check-answers" class="form" method="post"><!-- add random comma for some reason - to remove comma move close bracket properly -->
+
+          <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#who">
+                  Who
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#notes">
+                  Notes
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#location">
+                  Location
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#support-needed">
+                  Support needed
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
+            <section class="govuk-tabs__panel" id="who">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                  <div class="govuk-form-group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h1 class="govuk-fieldset__heading">
+                        Name of caller
+                      </h1>
+                    </legend>
+                    <input class="govuk-input" id="event-name" name="caller-name" type="text">
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-half">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h1 class="govuk-fieldset__heading">
+                        Who needs support?
+                      </h1>
+                    </legend>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="The person who called" data-aria-controls="how_many-people-1">
+                      <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                        The personl calling
+                      </label>
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="Someone else" data-aria-controls="how_many-people-2">
+                        <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                          Someone else
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-2">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="contact-by-phone">
+                            Name
+                          </label>
+                          <input class="govuk-input" id="contact-by-phone" name="contact-by-phone" type="tel">
+                        </div>
+
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="how_many-conditional-2" name="how_many" type="radio" value="A family or group" data-aria-controls="how_many-people-3">
+                        <label class="govuk-label govuk-radios__label" for="how_many-conditional-2">
+                          A family or group
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-3">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="contact-by-phone">
+                            Number of adults
+                          </label>
+                          <div class="input-group number-spinner"><!-- stepper top -->
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                            <input class="govuk-input govuk-input--width-2" type="number" id="adults" name="how-many-adults" value="0" min="0" max="9" style="text-align: center;">
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                          </div><!-- stepper bottomn -->
+                        </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="contact-by-phone">
+                            Number of children
+                          </label>
+                          <div class="input-group number-spinner"><!-- stepper top -->
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                            <input class="govuk-input govuk-input--width-2" type="number" id="adults" name="how-many-children" value="0" min="0" max="9" style="text-align: center;">
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                          </div><!-- stepper bottomn -->
+                        </div>
+
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="how_many-conditional" name="how_many" type="radio" value="Multiple groups" data-aria-controls="how_many-people-4">
+                        <label class="govuk-label govuk-radios__label" for="how_many-conditional">
+                          Multiple groups
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="how_many-people-4">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="contact-by-email">
+                            How many people
+                          </label>
+                          <div class="input-group number-spinner"><!-- stepper top -->
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="dwn" type="button" aria-label="Remove" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">−</button>
+                            <input class="govuk-input govuk-input--width-2" type="multiple-groups-number" id="adults" name="adults" value="0" min="0" max="9" style="text-align: center;">
+                            <button class="btn btn-default govuk-button govuk-input--width-2" data-dir="up" type="button" aria-label="Add" aria-describedby="adults-label" style="margin-bottom: 0px; background-color: #1d70b8;">+</button>
+                          </div><!-- stepper bottomn -->
+                        </div>
+                      </div>
+
+                    </div>
+                  </fieldset>
+                </div><!-- how to contact -->
+                </div>
+              </div>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes">
+              <div class="govuk-form-group"><!-- caller notes -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--m" for="registration-number">
+                    Summary notes
+                  </label>
+                </h1>
+                <textarea class="govuk-textarea" id="more-detail" name="summary-notes" rows="5" aria-describedby="more-detail-hint" placeholder="{{ data['initial-notes'] }}"></textarea>
+                </textarea>
+              </div>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="location">
+              <div class="govuk-form-group"><!-- flooded location -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label" for="registration-number">
+                    Where has been flooded
+                  </label>
+                </h1>
+                <input class="govuk-input" id="registration-number" name="incident-location" type="text">
+              </div>
+              <div class="govuk-form-group"><!-- current location -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label" for="registration-number">
+                    Where are they calling from
+                  </label>
+                </h1>
+                <input class="govuk-input" id="registration-number" name="caller-location" value="{{ data['caller-location'] }}" type="text">
+              </div>
+              <div class="govuk-form-group"><!-- accommodation for tonight -->
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label" for="registration-number">
+                    Where are they staying tonight
+                  </label>
+                </h1>
+                <input class="govuk-input" id="registration-number" name="staying-tonight" value="{{ data['staying-tonight'] }}" type="text">
+              </div>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="support-needed">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-form-group"><!-- support needed -->
+                    <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                          Support available
+                        </h1>
+                      </legend>
+                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="emotional support" data-aria-controls="conditional-citizenship-conditional-2">
+                          <label class="govuk-label govuk-checkboxes__label">
+                            Emotional support
+                          </label>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="counselling" data-aria-controls="conditional-counselling">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Counselling
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-counselling">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="replacement medicine" data-aria-controls="conditional-medicine">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Replacement medicine
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-medicine">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-text">
+                                  Medicine name
+                                </label>
+                                <input class="govuk-input" id="contact-by-text" name="medicine name" type="tel"><br><br>
+                                <p>Share information with <span style="font-weight: 700;">{% include "includes/healthcare-provider-name.html" %}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="temporary accommodation" data-aria-controls="conditional-housing">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Temporary accommodation
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-housing">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">Housing Executive</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="support-needed" type="checkbox" value="cash card" data-aria-controls="conditional-citizenship-conditional-2" checked>
+                          <label class="govuk-label govuk-checkboxes__label">
+                            Cash card
+                          </label>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="pets" data-aria-controls="conditional-pets">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Pets
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-pets">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">USPCA</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="insurance advice" data-aria-controls="conditional-insurance-adice">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Insurance advice
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-insurance-adice">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">Money Advice Service</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="grants" data-aria-controls="conditional-grants-repairs">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Grants to repair home and replace lost possessions
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-grants-repairs">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">Department of Infrastructure</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes"><!-- temporary accommodation -->
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="transport to rest centre" data-aria-controls="conditional-transport">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Transport to rest centre
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-transport">
+                            <div class="govuk-form-group">
+                                <p>Share information with <span style="font-weight: 700;">{% include "includes/local-authority-name.html" %}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="citizenship-conditional" name="support-needed" type="checkbox" value="other support" data-aria-controls="conditional-other-support">
+                            <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                              Other support
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-other-support">
+                            <div class="govuk-form-group">
+                              <input class="govuk-input" id="contact-by-email" name="other-support-needed">
+                            </div>
+                        </div>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      How to contact them
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+                      <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                        Email
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="contact-by-email">
+                          Email address
+                        </label>
+                        <input class="govuk-input" id="email-address" name="emailAddress" type="text">
+                      </div>
+
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+                      <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                        Phone
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="contact-by-phone">
+                          Phone number
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel">
+                      </div>
+
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="text" data-aria-controls="conditional-how-contacted-conditional-3">
+                      <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                        Text message
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="contact-by-text">
+                          Mobile phone number
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel">
+                      </div>
+
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </section>
+          </div>
+
+          <button id="red-button" class="govuk-button" data-module="govuk-button">Preview information before sending</button>
+
+          </form>
+
+        </div><!-- bottom of column -->
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
