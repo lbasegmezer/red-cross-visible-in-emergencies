@@ -1,0 +1,131 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {% include "includes/emergency-name.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% include "includes/header-index.html" %}
+      <br>
+
+      <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="/landing-page">Wellport floods 2019</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            Temporary accommodation
+          </li>
+        </ol>
+      </div>
+
+      <br>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">Temporary accommodation</h1>
+
+          <!--
+          <p class="govuk-body">
+            We will do everything we can to support you, your family and neighbours. When we cannot support you directly, we will put you in contact with organisations who can. 
+          </p>
+          -->
+
+          <ul class="govuk-list">
+            <li>
+              - <a class="govuk-link" href="#family-and-friends">Staying with family and friends</a>
+            </li>
+            <li>
+              - <a class="govuk-link" href="#council">Council provided accommodation</a>
+            </li>
+            <li>
+              - <a class="govuk-link" href="#visit-centre">Insurance provided accommodation</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <br>
+
+
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+
+      <br><br>
+      <div class="govuk-grid-row" id="family-and-friends"><!-- call centre -->
+
+        <div class="govuk-grid-column-two-thirds">
+            <h3 class="govuk-heading-m">
+              Staying with family and friends
+            </h3>
+
+            <p class="govuk-body">If you can, go to family or friends for the night while we support you with your next steps.</p>
+
+            <p>If you have don't have somewhere to stay tonight, <a href="/landing-page#call-advisor">speak to Red Cross</a> who can assist you finding somewhere.</p>
+
+        </div>
+
+      </div>
+
+      <br><br>
+
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <br><br>
+
+      <div class="govuk-grid-row" id="council"><!-- rest centre -->
+
+        <div class="govuk-grid-column-two-thirds">
+            <h3 class="govuk-heading-m">
+              Council provided accommodation
+            </h3>
+
+            <p class="govuk-body">{% include "includes/local-authority-name.html" %} can provide overnight shelter and temporary accommodation to people who have had to evacuate their homes.</p>
+
+            <p class="govuk-body">Temporary acommendation includes:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Beds at local help centre</li>
+              <li>Rooms at local hotels</li>
+              <li>Rental properties in and around Derry</li>
+              <li>Rental properties in neighbouring areas</li>
+            </ul>
+
+            <p><a href="#">Contact to Wellport</a> about temporary accommodation</p> 
+            <p><a href="/landing-page#call-advisor">Speak to the Red Cross</a> who can assist contacting the Wellport Council.</p>
+
+        </div>
+
+      </div>
+
+      <br><br>
+
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <br><br>
+
+      <div class="govuk-grid-row" id="insurance"><!-- rest centre -->
+
+        <div class="govuk-grid-column-two-thirds">
+            <h3 class="govuk-heading-m">
+              Insurance provided accommodation
+            </h3>
+
+            <p class="govuk-body">If you have home insurance, your insurance company should pay for your accommodation while your home is being repaired.</p>
+
+            <p><a href="/landing-page#call-advisor">Speak to the Red Cross</a> who can assist contacting your insurance company.</p>
+
+
+
+        </div>
+      </div>
+
+  </div>
+    
+
+{% endblock %}
