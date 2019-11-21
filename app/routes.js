@@ -8,7 +8,7 @@ const router = express.Router()
 
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
-router.post('/confirmation-page', function (req, res) {
+router.post('/platform/confirmation', function (req, res) {
 
   notify.sendEmail(
     // this long string is the template ID, copy it from the template
@@ -24,7 +24,7 @@ router.post('/confirmation-page', function (req, res) {
 
   // This is the URL the users will be redirected to once the email
   // has been sent
-  res.redirect('/confirmation-page');
+  res.redirect('/platform/confirmation');
 
 });
 

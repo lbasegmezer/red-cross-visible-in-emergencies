@@ -6,41 +6,34 @@
 
 {% block content %}
 
-{% include "includes/header-platform.html" %}
+{% include "includes/header-platform-logged-in.html" %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
-      <h3 class="govuk-heading-m">Wellport City Council</h3>
-
-
-      <hr>
-
-      <br>
     
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-quarter">
           <ul class="govuk-list" id="dashboard-nav">
             <li>
-              <a class="govuk-link" href="#call-advisor" style="font-weight: 700;">Dashboard</a>
+              <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="#call-advisor">Dashboard</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Register people</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="/platform/register-people">Register people</a>
             </li>
             <li>
-              <a class="govuk-link" href="#visit-centre">Past emergencies</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#visit-centre">Past emergencies</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">New emergency</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">New emergency</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Team members</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Team members</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Settings</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Settings</a>
             </li>
             <li>
-              <a class="govuk-link" href="#support-list">API integration</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#support-list">API integration</a>
             </li>
           </ul>
         </div>
@@ -51,9 +44,10 @@
 
           <div class="govuk-form-group"><!-- name -->
             <form autocomplete="off" action="/action_page.php">
-              <div class="autocomplete" style="width:100%;">
-                <input autocomplete="off" class="govuk-input" id="myInput" type="text" name="caller-name" value="{{ data['caller-name'] }}" placeholder="Search names, addresses, reference numbers">
+              <div class="autocomplete" style="width:87%;">
+                <input style="float: left;" autocomplete="off" class="govuk-input govuk-!-margin-right-1" id="myInput" type="text" name="caller-name" value="{{ data['caller-name'] }}" placeholder="Search names, addresses, reference numbers">
               </div>
+              <a style="width: 12%;" href="/platform/timeline" class="govuk-button govuk-button--secondary">Search</a>
               <input type="submit" hidden>
             </form>
           </div>

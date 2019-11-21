@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
   Question page
@@ -6,41 +6,34 @@
 
 {% block content %}
 
-{% include "includes/header-platform.html" %}
+{% include "includes/header-platform-logged-in.html" %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
-      <h3 class="govuk-heading-m">Wellport City Council</h3>
-
-
-      <hr>
-
-      <br>
     
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-quarter">
           <ul class="govuk-list" id="dashboard-nav">
             <li>
-              <a class="govuk-link" href="#call-advisor">Dashboard</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="/platform/home-dashboard">Dashboard</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online" style="font-weight: 700;">Register people</a>
+              <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="/platform/register-people">Register people</a>
             </li>
             <li>
-              <a class="govuk-link" href="#visit-centre">Past emergencies</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#visit-centre">Past emergencies</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">New emergency</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">New emergency</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Team members</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Team members</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Settings</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Settings</a>
             </li>
             <li>
-              <a class="govuk-link" href="#support-list">API integration</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#support-list">API integration</a>
             </li>
           </ul>
         </div>
@@ -48,8 +41,6 @@
 
           <span class="govuk-caption-l">{% include "includes/emergency-name.html" %}</span>
           <h2 class="govuk-heading-xl">Register people</h2>
-
-          <form action="/platform/check-answers" class="form" method="post"><!-- add random comma for some reason - to remove comma move close bracket properly -->
 
 <h1 class="govuk-heading-l">
         Check information before sending
@@ -187,7 +178,7 @@
 
         <input type="hidden" name="answers-checked" value="true">
 
-      <form action="/confirmation-page" class="form" method="post">
+      <form action="/platform/confirmation" class="form" method="post">
 
         <div class="govuk-form-group" type="hidden" >
           <input class="govuk-input govuk-input--width-20" id="email-address" name="emailAddress" type="text" value="{{ data['emailAddress'] }}">

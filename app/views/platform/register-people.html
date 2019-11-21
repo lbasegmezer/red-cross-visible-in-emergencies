@@ -6,41 +6,34 @@
 
 {% block content %}
 
-{% include "includes/header-platform.html" %}
+{% include "includes/header-platform-logged-in.html" %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
-      <h3 class="govuk-heading-m">Wellport City Council</h3>
-
-
-      <hr>
-
-      <br>
     
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-quarter">
           <ul class="govuk-list" id="dashboard-nav">
             <li>
-              <a class="govuk-link" href="#call-advisor">Dashboard</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="/platform/home-dashboard">Dashboard</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online" style="font-weight: 700;">Register people</a>
+              <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="/platform/register-people">Register people</a>
             </li>
             <li>
-              <a class="govuk-link" href="#visit-centre">Past emergencies</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#visit-centre">Past emergencies</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">New emergency</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">New emergency</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Team members</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Team members</a>
             </li>
             <li>
-              <a class="govuk-link" href="#contact-us-online">Settings</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#contact-us-online">Settings</a>
             </li>
             <li>
-              <a class="govuk-link" href="#support-list">API integration</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#support-list">API integration</a>
             </li>
           </ul>
         </div>
