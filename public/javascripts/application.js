@@ -57,7 +57,7 @@ $(document).on('click', '.number-spinner button', function () {
 });
 
 // autocomplete
-var names = ["Barbara Santos","Laura Basegmezer","Jo Straw","Harry Trimble","Christina Pekkola Tellez","Laura Turner","Rosie Slater-Carr","Ian Goodman","Ian Hopper"];
+var names = ["Mike Adamson","Laura Basegmezer","Jo Straw","Harry Trimble","Christina Pekkola Tellez","Laura Turner","Rosie Slater-Carr","Ian Goodman","Ian Hopper"];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
