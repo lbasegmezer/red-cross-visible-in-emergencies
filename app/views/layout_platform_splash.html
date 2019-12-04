@@ -1,0 +1,65 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+  <link rel="mask-icon" href="{{ asset_path }}images/gov.uk_logotype_crown.svg?0.18.3" color="#0b0c0c">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset_path }}images/apple-touch-icon-152x152.png?0.18.3">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset_path }}images/apple-touch-icon-120x120.png?0.18.3">
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset_path }}images/apple-touch-icon-76x76.png?0.18.3">
+  <link rel="apple-touch-icon-precomposed" href="{{ asset_path }}images/apple-touch-icon-60x60.png?0.18.3">
+{% endblock %}
+
+{% block head %}
+  <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header %}
+<header class="govuk-header " role="banner" data-module="govuk-header" style="background-color: #ffffff;">
+  <div class="govuk-header__container govuk-width-container" style="border-bottom: 0px;">
+        	<div style="float: left; padding-top: 19px;">
+	    		<h3 class="govuk-heading-m">
+	    			Emergency Registration Platform<br>
+	    			<span class="govuk-body govuk-!-font-size-16">Powered by British Red Cross</span>
+	    		</h3>
+	    		<p></p>
+    		</div>
+
+        	<div style="float: right; padding-top: 19px;">
+	    		<p class="govuk-body">
+	    			<span style="padding-right: 20px;">Get started</span>
+	    			<span style="padding-right: 20px;">Documentation</span>
+	    			<a href="/platform/login-email" id="platform-nav-link" style="text-decoration: none; color: #0b0c0c">Sign in</a>
+	    		</p>
+    		</div>
+  </div>
+</header>
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container" style="border-bottom: 0px;">
+  	<br>
+  	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+	      <h1 class="govuk-heading-l" style="color: #ffffff;">
+	        Record and view who's been affected in an emergency and needs support.
+	      </h1>
+	      <p class="govuk-body-l" style="color: #ffffff;">Try Emergency Registration Platform now if you respond to emergencies as part of a local authority or charity.</p>
+	      <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" style="background-color: #ffffff; color: #ed1c24;">
+	        Create a test account
+	        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+	          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+	        </svg>
+	      </a>
+	      <br>
+	      <br>
+	    </div>
+	</div>
+  </div>
+</header>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block bodyEnd %}
+  {% include "includes/scripts.html" %}
+{% endblock %}
