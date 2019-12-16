@@ -47,9 +47,32 @@
 
     <span class="govuk-caption-l">{% include "includes/emergency-name.html" %}</span>
     <h2 class="govuk-heading-xl">{{ data['caller-name'] }}</h2>
-    <p class="govuk-body">
-      Reference number <span class="govuk-body govuk-!-font-weight-bold">HDJ2123F</span>
-    </p>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+
+        <h4 class="govuk-heading-s">
+          Family
+        </h4>
+
+        <ul class="govuk-list" id="dashboard-nav">
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Zach Santos</a> (Adult)
+          </li>
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Lily Santos</a> (Under 18)
+          </li>
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Helen Santos</a> (Under 18)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
       <ol class="app-step-nav__steps">

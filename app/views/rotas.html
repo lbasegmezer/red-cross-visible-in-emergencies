@@ -13,20 +13,28 @@
         <div class="govuk-grid-column-one-quarter">
           <ul class="govuk-list" id="dashboard-nav">
             <li>
-              <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="#call-advisor">My shifts</a>
+              <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="#">Live emergencies</a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/platform/register-people">My availablity</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">New emergency</a>
             </li>
             <li>
-              <a class="govuk-link govuk-link--no-visited-state" href="/platform/register-people">My team's shifts</a>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Past emergencies</a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">On-call rota</a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Volunteers</a>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Settings</a>
             </li>
           </ul>
         </div>
         <div class="govuk-grid-column-three-quarters">
 
-          <span class="govuk-caption-l">Volunteer</span>
-          <h2 class="govuk-heading-xl">Nadiya Kanaa</h2>
+          <h2 class="govuk-heading-xl">Your next shift</h2>
 
                             <div class="govuk-panel govuk-panel--confirmation" style="background-color: #1d70b8;">
           <div class="govuk-panel__body">
@@ -35,7 +43,7 @@
           </div>
           <br>
           <div class="govuk-panel__body">
-            Emergency Response Volunteer<br><strong>Lancashire and Cumbria</strong>
+            Emergency Response Volunteer<br><strong>{% include "includes/emergency-name.html" %}</strong>
           </div>
         </div>
 
